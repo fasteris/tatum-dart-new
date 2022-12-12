@@ -4,9 +4,9 @@ part 'send_algo_response.g.dart';
 
 @JsonSerializable()
 class SendAlgoResponse {
-  final String txid;
+  final String txId;
 
-  SendAlgoResponse({required this.txid});
+  SendAlgoResponse({required this.txId});
 
   factory SendAlgoResponse.fromJson(Map<String, dynamic>? json) =>
       _$SendAlgoResponseFromJson(json!);

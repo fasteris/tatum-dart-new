@@ -26,7 +26,7 @@ class NetworkAuthInterceptor extends SimpleInterceptor {
     options.headers['VNS-Version-Code'] = '${deviceData['buildNumber']}';
 
     // temporary endpoints from another app i will remove.
-    final tatumApiKey = Tatum.instance.getApiKey();
+    final tatumApiKey = Tatum.instance.getApiKey;
     options.headers[Constants.HEADER_TATUM_X_API_KEY] = tatumApiKey;
 
     return options;

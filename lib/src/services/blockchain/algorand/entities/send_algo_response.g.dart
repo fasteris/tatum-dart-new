@@ -8,10 +8,10 @@ part of 'send_algo_response.dart';
 
 SendAlgoResponse _$SendAlgoResponseFromJson(Map<String, dynamic> json) =>
     SendAlgoResponse(
-      txid: json['txid'] as String,
+      txId: json['txId'] as String,
     );
 
 Map<String, dynamic> _$SendAlgoResponseToJson(SendAlgoResponse instance) =>
     <String, dynamic>{
-      'txid': instance.txid,
+      'txId': instance.txId,
     };

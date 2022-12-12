@@ -17,9 +17,7 @@ GetBitcoinBlockByHashResponse _$GetBitcoinBlockByHashResponseFromJson(
       nonce: json['nonce'] as int,
       prevBlock: json['prevBlock'] as String,
       time: json['time'] as int,
-      txs: (json['txs'] as List<dynamic>)
-          .map((e) => TXSEntity.fromJson(e as Map<String, dynamic>?))
-          .toList(),
+      txs: json['txs'] as List<TXSEntity>,
       version: json['version'] as int,
     );
 

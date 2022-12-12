@@ -40,6 +40,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final tatum = Tatum.instance;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -51,13 +52,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           ElevatedButton(
               onPressed: () async {
-                final data = await tatum.bitcoin.generateWallet();
-                print(data.mnemonic);
+                final data = await tatum.bcash.sendBCH(body: body);
+                print(data.);
               },
               child: Text('Test'))
         ]),

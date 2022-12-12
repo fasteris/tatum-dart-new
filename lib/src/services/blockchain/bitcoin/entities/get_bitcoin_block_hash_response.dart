@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tatum/src/services/bitcoin/entities/txs_entity.dart';
+import 'package:tatum/src/blockchain/bitcoin/entities/txs_entity.dart';
 
 part 'get_bitcoin_block_hash_response.g.dart';
 

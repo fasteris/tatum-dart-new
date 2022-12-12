@@ -1,20 +1,20 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tatum/src/di/injectible.dart';
-import 'package:tatum/src/services/algorand/entities/broadcast_signed_algorand_response.dart';
-import 'package:tatum/src/services/algorand/entities/generate_algorand_address_response.dart';
-import 'package:tatum/src/services/algorand/entities/generate_algorand_wallet_response.dart';
-import 'package:tatum/src/services/algorand/entities/get_algorand_account_balance_response.dart';
-import 'package:tatum/src/services/algorand/entities/get_algorand_by_block_number_response.dart';
-import 'package:tatum/src/services/algorand/entities/send_algo_response.dart';
-import 'package:tatum/src/services/algorand/entities/txns_entity.dart';
-import 'package:tatum/src/services/algorand/models/broadcast_signed_algorand_transaction_model.dart';
-import 'package:tatum/src/services/algorand/models/enable_receiving_assets_model.dart';
-import 'package:tatum/src/services/algorand/models/send_algo_model.dart';
-import 'package:tatum/src/services/bitcoin/entities/generate_address_response.dart';
-import 'package:tatum/src/services/bitcoin/entities/generate_private_key_response.dart';
-import 'package:tatum/src/services/bitcoin/entities/generate_wallet_response.dart';
-import 'package:tatum/src/services/bitcoin/models/generate_private_key_model.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/broadcast_signed_algorand_response.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/generate_algorand_address_response.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/generate_algorand_wallet_response.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/get_algorand_account_balance_response.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/get_algorand_by_block_number_response.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/send_algo_response.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/txns_entity.dart';
+import 'package:tatum/src/services/blockchain/algorand/models/broadcast_signed_algorand_transaction_model.dart';
+import 'package:tatum/src/services/blockchain/algorand/models/enable_receiving_assets_model.dart';
+import 'package:tatum/src/services/blockchain/algorand/models/send_algo_model.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_address_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_private_key_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_wallet_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/models/generate_private_key_model.dart';
 
 import 'package:retrofit/retrofit.dart';
 

@@ -2,8 +2,9 @@ library tatum;
 
 import 'package:tatum/src/core/tatum_core.dart';
 import 'package:tatum/src/di/injectible.dart';
-import 'package:tatum/src/services/algorand/tatum_algorand_api.dart';
-import 'package:tatum/src/services/bitcoin/tatum_bitcoin_api.dart';
+import 'package:tatum/src/services/blockchain/algorand/tatum_algorand_api.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/tatum_bitcoin_api.dart';
+import 'package:tatum/src/services/blockchain/bitcoin_cash/tatum_bitcoin_cash_api.dart';
 
 /// A Tatum.
 class Tatum {
@@ -30,4 +31,6 @@ class Tatum {
   BitcoinAPI bitcoin = Bitcoin.api;
 
   AlgorandAPI algorand = Algorand.api;
+
+  BitcoinCashAPI bcash = BitcoinCash.api;
 }

@@ -1,20 +1,20 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tatum/src/di/injectible.dart';
-import 'package:tatum/src/services/algorand/entities/send_algo_response.dart';
-import 'package:tatum/src/services/algorand/models/broadcast_signed_algorand_transaction_model.dart';
-import 'package:tatum/src/services/bitcoin/entities/generate_address_response.dart';
-import 'package:tatum/src/services/bitcoin/entities/generate_private_key_response.dart';
-import 'package:tatum/src/services/bitcoin/entities/generate_wallet_response.dart';
-import 'package:tatum/src/services/bitcoin/entities/get_balance_response.dart';
-import 'package:tatum/src/services/bitcoin/entities/get_bitcoin_bc_info_response.dart';
-import 'package:tatum/src/services/bitcoin/entities/get_bitcoin_block_hash_response.dart';
-import 'package:tatum/src/services/bitcoin/entities/get_hash_bitcoin_block_response.dart';
-import 'package:tatum/src/services/bitcoin/entities/txs_entity.dart';
-import 'package:tatum/src/services/bitcoin/models/generate_private_key_model.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/send_algo_response.dart';
+import 'package:tatum/src/services/blockchain/algorand/models/broadcast_signed_algorand_transaction_model.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_address_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_private_key_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_wallet_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/get_balance_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/get_bitcoin_bc_info_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/get_bitcoin_block_hash_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/get_hash_bitcoin_block_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/entities/txs_entity.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/models/generate_private_key_model.dart';
 
 import 'package:retrofit/retrofit.dart';
-import 'package:tatum/src/services/bitcoin/models/send_btc_model.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/models/send_btc_model.dart';
 
 part 'tatum_bitcoin_api.g.dart';
 
@@ -117,7 +117,7 @@ abstract class BitcoinService {
     @Body() required GeneratePrivateKeyModel body,
   });
 
-  ///Gets Bitcoin blockchain information.
+  ///Gets Bitcoin services/blockchain information.
   ///Obtains basic info like the testnet / mainnet version of the chain, the current block number and its hash.
   Future<GetBitcoinBCInfoResponse> getBitcoinBCInfo();
 
@@ -167,9 +167,9 @@ abstract class BitcoinService {
   Future<List<String>> getTransactionFromMempoop();
 
   ///
-  ///Broadcasts a signed transaction to the Bitcoin blockchain.
+  ///Broadcasts a signed transaction to the Bitcoin services/blockchain.
   ///This method is used internally from Tatum KMS or Tatum Client Libraries.
-  ///It is possible to create a custom signing mechanism and only use this method for broadcasting data to the blockchain.
+  ///It is possible to create a custom signing mechanism and only use this method for broadcasting data to the services/blockchain.
   ///
   Future<Map<String, String>> broadcast({
     @Body() required BroadcastModel body,

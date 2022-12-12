@@ -12,8 +12,10 @@ import 'package:tatum/src/global/interceptor/network_auth_interceptor.dart';
 import 'package:tatum/src/global/interceptor/network_error_interceptor.dart';
 import 'package:tatum/src/global/interceptor/network_log_interceptor.dart';
 import 'package:tatum/src/global/interceptor/network_refresh_interceptor.dart';
-import 'package:tatum/src/services/algorand/tatum_algorand_api.dart';
-import 'package:tatum/src/services/bitcoin/tatum_bitcoin_api.dart';
+import 'package:tatum/src/services/blockchain/algorand/tatum_algorand_api.dart';
+import 'package:tatum/src/services/blockchain/bitcoin/tatum_bitcoin_api.dart';
+import 'package:tatum/src/services/blockchain/bitcoin_cash/tatum_bitcoin_cash_api.dart';
+import 'package:tatum/src/services/blockchain/bnb_smart_chain/tatum_bsc_api.dart';
 import 'injectible.config.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -103,7 +105,14 @@ abstract class RegisterModule {
       BitcoinAPI(provideDio(CombiningSmartInterceptor()));
 
   @singleton
-  AlgorandAPI algorandAPI() => AlgorandAPI(provideDio(CombiningSmartInterceptor()));
+  AlgorandAPI algorandAPI() =>
+      AlgorandAPI(provideDio(CombiningSmartInterceptor()));
+
+  @singleton
+  BitcoinCashAPI bcashAPI() => BitcoinCashAPI(getIt.get<Dio>());
+
+  @singleton
+  BSCAPI bscAPI() => BSCAPI(getIt.get<Dio>());
 }
 
 dynamic _parseAndDecode(String response) => jsonDecode(response);

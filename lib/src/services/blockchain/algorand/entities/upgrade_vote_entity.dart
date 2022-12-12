@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tatum/src/services/algorand/entities/asset_entity.dart';
+import 'package:tatum/src/blockchain/algorand/entities/asset_entity.dart';
 
 part 'upgrade_vote_entity.g.dart';
 

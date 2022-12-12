@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tatum/src/services/algorand/entities/asset_entity.dart';
-import 'package:tatum/src/services/algorand/entities/rewards_entity.dart';
-import 'package:tatum/src/services/algorand/entities/txns_entity.dart';
-import 'package:tatum/src/services/algorand/entities/upgrade_state_entity.dart';
-import 'package:tatum/src/services/algorand/entities/upgrade_vote_entity.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/asset_entity.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/rewards_entity.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/txns_entity.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/upgrade_state_entity.dart';
+import 'package:tatum/src/services/blockchain/algorand/entities/upgrade_vote_entity.dart';
 
 part 'get_algorand_by_block_number_response.g.dart';
 
