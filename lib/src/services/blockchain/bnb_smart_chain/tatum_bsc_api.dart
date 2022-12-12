@@ -8,7 +8,7 @@ import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_private_
 import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_wallet_response.dart';
 import 'package:tatum/src/services/blockchain/bitcoin/entities/get_balance_response.dart';
 import 'package:tatum/src/services/blockchain/bitcoin/models/generate_private_key_model.dart';
-import 'package:tatum/src/services/blockchain/bitcoin_cash/models/send_model.dart';
+import 'package:tatum/src/services/blockchain/bnb_smart_chain/models/send_model.dart';
 import 'package:tatum/src/services/blockchain/bnb_smart_chain/entities/get_bsc_block_by_hash_response.dart';
 import 'package:tatum/src/services/blockchain/bnb_smart_chain/entities/transaction_entity.dart';
 

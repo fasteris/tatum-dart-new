@@ -18,8 +18,9 @@ import '../global/interceptor/network_refresh_interceptor.dart' as _i11;
 import '../services/blockchain/algorand/tatum_algorand_api.dart' as _i3;
 import '../services/blockchain/bitcoin/tatum_bitcoin_api.dart' as _i5;
 import '../services/blockchain/bitcoin_cash/tatum_bitcoin_cash_api.dart' as _i6;
+import '../services/blockchain/bnb_beacon_chain/tatum_bbc_api.dart' as _i14;
 import '../services/blockchain/bnb_smart_chain/tatum_bsc_api.dart' as _i4;
-import 'injectible.dart' as _i14; // ignore_for_file: unnecessary_lambdas
+import 'injectible.dart' as _i15; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -57,10 +58,11 @@ _i1.GetIt $initGetIt(
   gh.singleton<_i13.Dio>(
       registerModule.provideDio(get<_i12.CombiningSmartInterceptor>()));
   gh.singleton<_i3.AlgorandService>(_i3.AlgorandAPI(get<_i13.Dio>()));
+  gh.singleton<_i14.BBCService>(_i14.BBCAPI(get<_i13.Dio>()));
   gh.singleton<_i4.BSCService>(_i4.BSCAPI(get<_i13.Dio>()));
   gh.singleton<_i6.BitcoinCashService>(_i6.BitcoinCashAPI(get<_i13.Dio>()));
   gh.singleton<_i5.BitcoinService>(_i5.BitcoinAPI(get<_i13.Dio>()));
   return get;
 }
 
-class _$RegisterModule extends _i14.RegisterModule {}
+class _$RegisterModule extends _i15.RegisterModule {}
