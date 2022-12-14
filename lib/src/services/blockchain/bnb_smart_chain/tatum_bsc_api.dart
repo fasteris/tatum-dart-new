@@ -8,6 +8,7 @@ import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_private_
 import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_wallet_response.dart';
 import 'package:tatum/src/services/blockchain/bitcoin/entities/get_balance_response.dart';
 import 'package:tatum/src/services/blockchain/bitcoin/models/generate_private_key_model.dart';
+import 'package:tatum/src/services/blockchain/bnb_smart_chain/entities/generate_wallet_response.dart';
 import 'package:tatum/src/services/blockchain/bnb_smart_chain/models/send_model.dart';
 import 'package:tatum/src/services/blockchain/bnb_smart_chain/entities/get_bsc_block_by_hash_response.dart';
 import 'package:tatum/src/services/blockchain/bnb_smart_chain/entities/transaction_entity.dart';
@@ -22,7 +23,7 @@ abstract class BSCAPI implements BSCService {
 
   @override
   @GET('bsc/wallet')
-  Future<GenerateBitcoinWalletResponse> generateWallet();
+  Future<GenerateBSCWallet> generateWallet();
 
   @override
   @GET('bsc/address/{xpub}/{index}')
@@ -77,7 +78,7 @@ abstract class BSCService {
   ///Derivation index - index of generated address
   ///Tatum follows BIP44 specification and generates for BSC wallet with derivation path m'/44'/60'/0'/0. More about BIP44 HD wallets can be found here - https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki. Generate BIP44 compatible BSC wallet.
   ///Security
-  Future<GenerateBitcoinWalletResponse> generateWallet();
+  Future<GenerateBSCWallet> generateWallet();
 
   ///
   ///Generate BSC account deposit address from Extended public key.

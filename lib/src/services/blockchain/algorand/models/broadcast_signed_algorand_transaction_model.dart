@@ -13,11 +13,13 @@ class BroadcastSignedAlgorandTransaction extends Equatable {
 
 class BroadcastModel extends Equatable {
   final String txData;
+  final String? signatureId;
 
-  const BroadcastModel({required this.txData});
+  const BroadcastModel({required this.txData, this.signatureId});
 
-  Map<String, dynamic> toJson() => {'txData': txData};
+  Map<String, dynamic> toJson() =>
+      {'txData': txData, 'signatureId': signatureId};
 
   @override
-  List<Object?> get props => [txData];
+  List<Object?> get props => [txData, signatureId];
 }

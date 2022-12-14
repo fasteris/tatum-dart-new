@@ -13,3 +13,16 @@ class SendAlgoResponse {
 
   Map<String, dynamic> toJson() => _$SendAlgoResponseToJson(this);
 }
+
+
+@JsonSerializable()
+class TXIDResponse {
+  final String txId;
+
+  TXIDResponse({required this.txId});
+
+  factory TXIDResponse.fromJson(Map<String, dynamic>? json) =>
+      _$TXIDResponseFromJson(json!);
+
+  Map<String, dynamic> toJson() => _$TXIDResponseToJson(this);
+}

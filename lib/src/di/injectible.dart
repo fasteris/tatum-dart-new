@@ -15,7 +15,13 @@ import 'package:tatum/src/global/interceptor/network_refresh_interceptor.dart';
 import 'package:tatum/src/services/blockchain/algorand/tatum_algorand_api.dart';
 import 'package:tatum/src/services/blockchain/bitcoin/tatum_bitcoin_api.dart';
 import 'package:tatum/src/services/blockchain/bitcoin_cash/tatum_bitcoin_cash_api.dart';
+import 'package:tatum/src/services/blockchain/bnb_beacon_chain/tatum_bbc_api.dart';
 import 'package:tatum/src/services/blockchain/bnb_smart_chain/tatum_bsc_api.dart';
+import 'package:tatum/src/services/blockchain/celo/tatum_celo_api.dart';
+import 'package:tatum/src/services/blockchain/dogecoin/tatum_dogecoin_api.dart';
+import 'package:tatum/src/services/blockchain/elrond/tatum_elrond_api.dart';
+import 'package:tatum/src/services/blockchain/ethereum/tatum_ethereum_api.dart';
+import 'package:tatum/src/services/blockchain/flow/tatum_flow_api.dart';
 import 'injectible.config.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -109,10 +115,31 @@ abstract class RegisterModule {
       AlgorandAPI(provideDio(CombiningSmartInterceptor()));
 
   @singleton
-  BitcoinCashAPI bcashAPI() => BitcoinCashAPI(getIt.get<Dio>());
+  BitcoinCashAPI bcashAPI() =>
+      BitcoinCashAPI(provideDio(CombiningSmartInterceptor()));
 
   @singleton
-  BSCAPI bscAPI() => BSCAPI(getIt.get<Dio>());
+  BSCAPI bscAPI() => BSCAPI(provideDio(CombiningSmartInterceptor()));
+
+  @singleton
+  BBCAPI bbcAPI() => BBCAPI(provideDio(CombiningSmartInterceptor()));
+
+  @singleton
+  CeloAPI celoAPI() => CeloAPI(provideDio(CombiningSmartInterceptor()));
+
+  @singleton
+  DogeCoinAPI dogecoinAPI() =>
+      DogeCoinAPI(provideDio(CombiningSmartInterceptor()));
+
+  @singleton
+  ElrondAPI elrondAPI() => ElrondAPI(provideDio(CombiningSmartInterceptor()));
+
+  @singleton
+  EthereumAPI ethereumAPI() =>
+      EthereumAPI(provideDio(CombiningSmartInterceptor()));
+
+  @singleton
+  FlowAPI flowAPI() => FlowAPI(provideDio(CombiningSmartInterceptor()));
 }
 
 dynamic _parseAndDecode(String response) => jsonDecode(response);

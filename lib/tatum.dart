@@ -5,6 +5,13 @@ import 'package:tatum/src/di/injectible.dart';
 import 'package:tatum/src/services/blockchain/algorand/tatum_algorand_api.dart';
 import 'package:tatum/src/services/blockchain/bitcoin/tatum_bitcoin_api.dart';
 import 'package:tatum/src/services/blockchain/bitcoin_cash/tatum_bitcoin_cash_api.dart';
+import 'package:tatum/src/services/blockchain/bnb_beacon_chain/tatum_bbc_api.dart';
+import 'package:tatum/src/services/blockchain/bnb_smart_chain/tatum_bsc_api.dart';
+import 'package:tatum/src/services/blockchain/celo/tatum_celo_api.dart';
+import 'package:tatum/src/services/blockchain/dogecoin/tatum_dogecoin_api.dart';
+import 'package:tatum/src/services/blockchain/elrond/tatum_elrond_api.dart';
+import 'package:tatum/src/services/blockchain/ethereum/tatum_ethereum_api.dart';
+import 'package:tatum/src/services/blockchain/flow/tatum_flow_api.dart';
 
 /// A Tatum.
 class Tatum {
@@ -33,4 +40,18 @@ class Tatum {
   AlgorandAPI algorand = Algorand.api;
 
   BitcoinCashAPI bcash = BitcoinCash.api;
+
+  BSCAPI bnbSmartChain = BNBSmartChain.api;
+
+  BBCAPI bnbBeaconChain = BNBBeaconChain.api;
+
+  CeloAPI celo = Celo.api;
+
+  DogeCoinAPI dogecoin = DogeCoin.api;
+
+  ElrondAPI elrond = Elrond.api;
+
+  EthereumAPI ethereum = Ethereum.api;
+
+  FlowAPI flow = Flow.api;
 }

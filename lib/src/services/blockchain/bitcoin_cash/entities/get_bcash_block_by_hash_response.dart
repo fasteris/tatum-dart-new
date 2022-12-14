@@ -19,6 +19,7 @@ class GetBCashBlockByHashResponse {
   final String previousBlockHash;
   @JsonKey(name: 'nextblockhash')
   final String nextBlockHash;
+  final int? weight;
 
   GetBCashBlockByHashResponse(
       {required this.hash,
@@ -32,7 +33,7 @@ class GetBCashBlockByHashResponse {
       required this.nextBlockHash,
       required this.nonce,
       required this.previousBlockHash,
-      required this.time});
+      required this.time, this.weight});
 
   factory GetBCashBlockByHashResponse.fromJson(Map<String, dynamic>? json) =>
       _$GetBCashBlockByHashResponseFromJson(json!);

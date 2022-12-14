@@ -8,9 +8,7 @@ import 'combining_smart_interceptor.dart';
 
 @singleton
 class NetworkAuthInterceptor extends SimpleInterceptor {
-  final _excludedPaths = [
-
-  ];
+  final _excludedPaths = [];
 
   NetworkAuthInterceptor();
 
@@ -24,6 +22,13 @@ class NetworkAuthInterceptor extends SimpleInterceptor {
     options.headers['user-agent'] =
         '''Device-Type: ${deviceData['deviceType']}; OS-version: ${deviceData['os_version']}; Device-Model: ${deviceData['model']}; Device-id: Build/${deviceData['id']}; App-version: ${deviceData['devicePlatform']}/${deviceData['appVersion']}, App-type: ${deviceData['appType']};''';
     options.headers['VNS-Version-Code'] = '${deviceData['buildNumber']}';
+
+    if (options.path.contains('ethereum')) {
+      options.headers.addAll({
+        Constants.HEADER_TATUM_X_TESTNET_TYPE:
+            Constants.HEADER_TATUM_ETHEREUM_SEPOLIA
+      });
+    }
 
     // temporary endpoints from another app i will remove.
     final tatumApiKey = Tatum.instance.getApiKey;

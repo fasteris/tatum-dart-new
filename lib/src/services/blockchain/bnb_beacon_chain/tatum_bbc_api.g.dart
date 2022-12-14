@@ -19,13 +19,13 @@ class _BBCAPI implements BBCAPI {
   String? baseUrl;
 
   @override
-  Future<GenerateBitcoinWalletResponse> generateWallet() async {
+  Future<GenerateBBCWallet> generateWallet() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<GenerateBitcoinWalletResponse>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<GenerateBBCWallet>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -37,7 +37,7 @@ class _BBCAPI implements BBCAPI {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = GenerateBitcoinWalletResponse.fromJson(_result.data!);
+    final value = GenerateBBCWallet.fromJson(_result.data!);
     return value;
   }
 
@@ -136,7 +136,7 @@ class _BBCAPI implements BBCAPI {
   }
 
   @override
-  Future<GetBinanceTxByAddressResponse> getBinanceTransactionByAddress({
+  Future<GetBinanceTxByAddressResponse> getBinanceTransactionsByAddress({
     required address,
     required startTime,
     required endTime,

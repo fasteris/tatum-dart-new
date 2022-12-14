@@ -4,7 +4,8 @@ import 'package:retrofit/retrofit.dart';
 import 'package:tatum/src/services/blockchain/algorand/entities/send_algo_response.dart';
 import 'package:tatum/src/services/blockchain/algorand/models/broadcast_signed_algorand_transaction_model.dart';
 import 'package:tatum/src/services/blockchain/bitcoin/entities/generate_wallet_response.dart';
-import 'package:tatum/src/services/blockchain/bnb_smart_chain/models/send_model.dart';
+import 'package:tatum/src/services/blockchain/bnb_beacon_chain/entities/generate_wallet_response.dart';
+import 'package:tatum/src/services/blockchain/bnb_beacon_chain/models/send_bbc_model.dart';
 import 'package:tatum/src/services/blockchain/bnb_beacon_chain/entities/get_bbc_transaction_block_response.dart';
 import 'package:tatum/src/services/blockchain/bnb_beacon_chain/entities/get_binance_account_response.dart';
 import 'package:tatum/src/services/blockchain/bnb_beacon_chain/entities/get_binance_tx_by_address_response.dart';
@@ -21,7 +22,7 @@ abstract class BBCAPI implements BBCService {
 
   @override
   @GET('bnb/account')
-  Future<GenerateBitcoinWalletResponse> generateWallet();
+  Future<GenerateBBCWallet> generateWallet();
 
   @override
   @GET('bnb/block/current')
@@ -44,7 +45,7 @@ abstract class BBCAPI implements BBCService {
 
   @override
   @GET('bnb/account/transaction/{address}')
-  Future<GetBinanceTxByAddressResponse> getBinanceTransactionByAddress(
+  Future<GetBinanceTxByAddressResponse> getBinanceTransactionsByAddress(
       {@Path('address') required String address,
       @Query('startTime') required int startTime,
       @Query('endTime') required int endTime,
@@ -55,7 +56,7 @@ abstract class BBCAPI implements BBCService {
 
   @override
   @POST('bnb/transaction')
-  Future<SendAlgoResponse> send({@Body() required SendModel body});
+  Future<SendAlgoResponse> send({@Body() required SendBBCModel body});
 
   @override
   @POST('bnb/broadcast')
@@ -66,7 +67,7 @@ abstract class BBCAPI implements BBCService {
 abstract class BBCService {
   ///
   ///Generate BNB account. Tatum does not support HD wallet for BNB, only specific address and private key can be generated.
-  Future<GenerateBitcoinWalletResponse> generateWallet();
+  Future<GenerateBBCWallet> generateWallet();
 
   ///
   ///Get Binance current block number.
@@ -89,7 +90,7 @@ abstract class BBCService {
 
   ///
   ///Get Binance Transactions by address.
-  Future<GetBinanceTxByAddressResponse> getBinanceTransactionByAddress(
+  Future<GetBinanceTxByAddressResponse> getBinanceTransactionsByAddress(
       {@Path('address') required String address,
       @Query('startTime') required int startTime,
       @Query('endTime') required int endTime,
@@ -106,7 +107,7 @@ abstract class BBCService {
   ///In this method, it is possible to enter privateKey. PrivateKey should be used only for quick development on testnet versions of blockchain when there is no risk of losing funds.
   ///In production, Tatum KMS should be used for the highest security standards, and signatureId should be present in the request.
   ///Alternatively, using the Tatum client library for supported languages.
-  Future<SendAlgoResponse> send({@Body() required SendModel body});
+  Future<SendAlgoResponse> send({@Body() required SendBBCModel body});
 
   ///
   ///Broadcast signed transaction to Binance blockchain.

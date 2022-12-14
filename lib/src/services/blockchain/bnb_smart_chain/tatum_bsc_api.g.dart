@@ -19,13 +19,13 @@ class _BSCAPI implements BSCAPI {
   String? baseUrl;
 
   @override
-  Future<GenerateBitcoinWalletResponse> generateWallet() async {
+  Future<GenerateBSCWallet> generateWallet() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<GenerateBitcoinWalletResponse>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<GenerateBSCWallet>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -37,7 +37,7 @@ class _BSCAPI implements BSCAPI {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = GenerateBitcoinWalletResponse.fromJson(_result.data!);
+    final value = GenerateBSCWallet.fromJson(_result.data!);
     return value;
   }
 

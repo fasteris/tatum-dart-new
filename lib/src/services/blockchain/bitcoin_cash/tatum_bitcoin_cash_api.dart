@@ -9,8 +9,10 @@ import 'package:tatum/src/services/blockchain/bitcoin/entities/get_bitcoin_bc_in
 import 'package:tatum/src/services/blockchain/bitcoin/entities/get_hash_bitcoin_block_response.dart';
 import 'package:tatum/src/services/blockchain/bitcoin/models/generate_private_key_model.dart';
 import 'package:tatum/src/services/blockchain/bitcoin_cash/entities/bcash_tx_response.dart';
+import 'package:tatum/src/services/blockchain/bitcoin_cash/entities/generate_wallet_response.dart';
 import 'package:tatum/src/services/blockchain/bitcoin_cash/entities/get_bcash_block_by_hash_response.dart';
 import 'package:tatum/src/services/blockchain/bitcoin_cash/models/send_model.dart';
+import 'package:tatum/src/services/blockchain/bnb_beacon_chain/entities/generate_wallet_response.dart';
 
 import '../bitcoin/entities/generate_wallet_response.dart';
 
@@ -24,7 +26,7 @@ abstract class BitcoinCashAPI implements BitcoinCashService {
 
   @override
   @GET('bcash/wallet')
-  Future<GenerateBitcoinWalletResponse> generateWallet();
+  Future<GenerateBCashWalletResponse> generateWallet();
 
   @override
   @GET('bcash/info')
@@ -77,7 +79,7 @@ abstract class BitcoinCashService {
   ///Public Key - public address to be published
   ///Derivation index - index of generated address
   ///Tatum follows BIP44 specification and generates for Bitcoin Cash wallet with derivation path m'/44'/145'/0'/0. More about BIP44 HD wallets can be found here - https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki. Generate BIP44 compatible Bitcoin Cash wallet.
-  Future<GenerateBitcoinWalletResponse> generateWallet();
+  Future<GenerateBCashWalletResponse> generateWallet();
 
   ///
   ///5 credits per API call

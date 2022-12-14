@@ -24,6 +24,7 @@ GetBCashBlockByHashResponse _$GetBCashBlockByHashResponseFromJson(
       nonce: json['nonce'] as int,
       previousBlockHash: json['previousblockhash'] as String,
       time: json['time'] as int,
+      weight: json['weight'] as int?,
     );
 
 Map<String, dynamic> _$GetBCashBlockByHashResponseToJson(
@@ -41,4 +42,5 @@ Map<String, dynamic> _$GetBCashBlockByHashResponseToJson(
       'confirmations': instance.confirmations,
       'previousblockhash': instance.previousBlockHash,
       'nextblockhash': instance.nextBlockHash,
+      'weight': instance.weight,
     };

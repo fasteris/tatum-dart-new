@@ -9,7 +9,9 @@ part of 'get_algorand_account_balance_response.dart';
 GetAlgorandAccountBalanceResponse _$GetAlgorandAccountBalanceResponseFromJson(
         Map<String, dynamic> json) =>
     GetAlgorandAccountBalanceResponse(
-      asset: json['asset'] as List<AssetEntity>,
+      asset: (json['asset'] as List<dynamic>)
+          .map((e) => AssetEntity.fromJson(e as Map<String, dynamic>?))
+          .toList(),
       balance: json['balance'] as int,
     );
 

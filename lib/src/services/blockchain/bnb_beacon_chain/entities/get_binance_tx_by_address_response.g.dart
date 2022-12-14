@@ -9,10 +9,10 @@ part of 'get_binance_tx_by_address_response.dart';
 GetBinanceTxByAddressResponse _$GetBinanceTxByAddressResponseFromJson(
         Map<String, dynamic> json) =>
     GetBinanceTxByAddressResponse(
-      total: json['total'] as int,
       tx: (json['tx'] as List<dynamic>)
           .map((e) => TransactionEntity.fromJson(e as Map<String, dynamic>?))
           .toList(),
+      total: json['total'] as int?,
     );
 
 Map<String, dynamic> _$GetBinanceTxByAddressResponseToJson(
