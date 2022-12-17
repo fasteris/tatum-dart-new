@@ -71,9 +71,10 @@ package.
 Algorand is a decentralized blockchain technology network. Algorand is enabling the simple creation of next generation financial products, protocols and exchange of value across defi, financial institutions and governments.
 Tatum supports 2 chains:
 
-Mainnet - a regular live chain
-Testnet - a chain used for testing purposes. Coins on the test chain have no value and can be obtained from a faucet, e.g. https://bank.testnet.algorand.network/
-
+```dart
+final algorand = tatum.algorand;
+final wallet = await algorand.generateWallet();
+```
 - [API documentation](https://apidoc.tatum.io/tag/Algorand)
 
 #### Bitcoin API
@@ -81,8 +82,10 @@ Testnet - a chain used for testing purposes. Coins on the test chain have no val
 Bitcoin Blockchain enables access to the most commonly used Bitcoin methods. These methods bring a small level of abstraction and are used for applications that communicate with the blockchain directly. Some of the methods are used alongside Tatum Private Ledger to connect the blockchain and the private ledger, like wallet generation or getting information about transactions.
 Tatum supports 2 chains:
 
-Mainnet - a regular live chain
-Testnet3 - a chain used for testing purposes. Coins on the test chain have no value and can be obtained from a faucet, e.g. https://testnet-faucet.mempool.co/
+```dart
+final bitcoin = tatum.bitcoin;
+final wallet = await bitcoin.generateWallet();
+```
 
 - [API documentation](https://apidoc.tatum.io/tag/Bitcoin)
 
@@ -91,8 +94,9 @@ Testnet3 - a chain used for testing purposes. Coins on the test chain have no va
 Bitcoin Cash Blockchain enables access to the most commonly used Bitcoin Cash methods. These methods bring a small level of abstraction and are used for applications that communicate with the blockchain directly. Some of the methods are used alongside Tatum Private Ledger to connect the blockchain and the private ledger, like wallet generation or getting information about transactions.
 Tatum supports 2 chains:
 
-Mainnet - a regular live chain
-Testnet - a chain used for testing purposes. Coins on the test chain have no value and can be obtained from a faucet, e.g. https://faucet.fullstack.cash/
-Tatum supports BIP44 HD wallets. Because they can generate 2^31 addresses from 1 mnemonic phrase, they are very convenient and secure. It is possible to generate this type of wallet with 1 simple API call.
+```dart
+final bCash = tatum.bCash;
+final wallet = await bCash.generateWallet();
+```
 
 - [API documentation](https://apidoc.tatum.io/tag/Bitcoin-Cash)
