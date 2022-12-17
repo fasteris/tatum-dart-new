@@ -35,7 +35,7 @@ OR
 ```dart
 final tatum = Tatum.v3;
 ```
-Then set APIkey
+Then set api key;
 ```dart
 tatum.setKey('your-api-key');
 ```
