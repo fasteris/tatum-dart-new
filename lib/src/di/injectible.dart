@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:tatum/src/global/helpers/connectivity_helper.dart';
 import 'package:tatum/src/global/helpers/constants.dart';
 import 'package:tatum/src/global/helpers/get_device_info.dart';
 import 'package:tatum/src/global/interceptor/combining_smart_interceptor.dart';
@@ -53,9 +52,6 @@ abstract class RegisterModule {
     final deviceInfo = await GetDeviceInfo.initPlatformState();
     return deviceInfo;
   }
-
-  @singleton
-  ConnectivityHelper connectivityHelper() => ConnectivityHelper();
 
   @singleton
   CombiningSmartInterceptor provideCombiningSmartInterceptor(

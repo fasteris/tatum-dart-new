@@ -15,20 +15,20 @@ dependencies:
   injectable: ^1.5.3
   dio: ^4.0.6
   pretty_dio_logger: ^1.1.1
+  json_annotation: ^4.7.0
+  retrofit: ^3.3.1
+  equatable: ^2.0.5
+  package_info_plus: ^1.4.3+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   build_runner: ^2.2.0
-  retrofit: ^3.3.1
   retrofit_generator: ^4.2.0
-  json_serializable: ^6.3.1
-  equatable: ^2.0.5
   injectable_generator: ^1.5.4
-  package_info_plus: ^1.4.3+1
-  logger: ^1.1.0
-  connectivity_plus: ^2.3.9
+  json_serializable: ^6.3.1
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
