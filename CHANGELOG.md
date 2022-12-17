@@ -5,3 +5,8 @@
 ## 1.0.2
 
 * code refactor
+
+## 1.0.3
+
+* code refactor
+* readme edit
