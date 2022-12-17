@@ -11,25 +11,33 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+#Tatum APis
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Generated Dart libraries for accessing Tatum APIs.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To get started copy: `tatum: ^1.0.1` paste into your `pubspec.yaml` and run `flutter pub get`
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+To use, simple add
 
 ```dart
-const like = 'sample';
+Tatum.config()
+```
+inside `main()` function, then instanciat by doing this:
+
+```dart
+Tatum.instance;
+```
+OR
+```dart
+Tatum.v3;
+```
+Then set APIkey
+```dart
+Tatum.setKey('your-api-key');
 ```
 
 ## Additional information
