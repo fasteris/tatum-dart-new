@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-#Tatum APis
+# Tatum APis
 
 Generated Dart libraries for accessing Tatum APIs.
 
