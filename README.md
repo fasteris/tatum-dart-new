@@ -15,6 +15,8 @@ and the Flutter guide for
 
 Generated Dart libraries for accessing Tatum APIs.
 
+![tatum flutter](https://firebasestorage.googleapis.com/v0/b/vaultwallet-8835f.appspot.com/o/blockchain-images%2Ftatum-flutter.png?alt=media&token=578e97ad-1d8b-4bdb-aa69-b019ae998b16)
+
 ## Getting started
 
 To get started copy: `tatum: ^1.0.2` paste into your `pubspec.yaml` and run `flutter pub get`
@@ -26,12 +28,12 @@ import 'package:tatum/tatum.dart'
 
 ## Usage
 
-To use, simple add
+To use, simple add inside `main()` function before `runApp` if using flutter.
 
 ```dart
 Tatum.initArchitecture();
 ```
-inside `main()` function, then instanciat by doing this:
+then instanciate by doing this:
 
 ```dart
 final tatum = Tatum.instance;

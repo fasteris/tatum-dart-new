@@ -68,6 +68,7 @@ class _HomeState extends State<Home> {
             children: [
               ElevatedButton(
                   onPressed: () async {
+                    
                     final eth = await tatum.ethereum.generateWallet();
                     final address = await tatum.ethereum
                         .generateEthereumAccountAddressFromXPubKey(
