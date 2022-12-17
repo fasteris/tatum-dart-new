@@ -14,12 +14,12 @@ class SendAlgoResponse {
   Map<String, dynamic> toJson() => _$SendAlgoResponseToJson(this);
 }
 
-
 @JsonSerializable()
 class TXIDResponse {
   final String txId;
+  final String? confirmed;
 
-  TXIDResponse({required this.txId});
+  TXIDResponse({required this.txId, this.confirmed});
 
   factory TXIDResponse.fromJson(Map<String, dynamic>? json) =>
       _$TXIDResponseFromJson(json!);

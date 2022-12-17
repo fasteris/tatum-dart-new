@@ -9,9 +9,6 @@ import 'package:tatum/src/global/helpers/constants.dart';
 import 'package:tatum/src/global/helpers/get_device_info.dart';
 import 'package:tatum/src/global/interceptor/combining_smart_interceptor.dart';
 import 'package:tatum/src/global/interceptor/network_auth_interceptor.dart';
-import 'package:tatum/src/global/interceptor/network_error_interceptor.dart';
-import 'package:tatum/src/global/interceptor/network_log_interceptor.dart';
-import 'package:tatum/src/global/interceptor/network_refresh_interceptor.dart';
 import 'package:tatum/src/services/blockchain/algorand/tatum_algorand_api.dart';
 import 'package:tatum/src/services/blockchain/bitcoin/tatum_bitcoin_api.dart';
 import 'package:tatum/src/services/blockchain/bitcoin_cash/tatum_bitcoin_cash_api.dart';
@@ -22,6 +19,16 @@ import 'package:tatum/src/services/blockchain/dogecoin/tatum_dogecoin_api.dart';
 import 'package:tatum/src/services/blockchain/elrond/tatum_elrond_api.dart';
 import 'package:tatum/src/services/blockchain/ethereum/tatum_ethereum_api.dart';
 import 'package:tatum/src/services/blockchain/flow/tatum_flow_api.dart';
+import 'package:tatum/src/services/blockchain/harmony/tatum_harmony_api.dart';
+import 'package:tatum/src/services/blockchain/klaytn/tatum_klaytn_api.dart';
+import 'package:tatum/src/services/blockchain/kucoin/tatum_kucoin_api.dart';
+import 'package:tatum/src/services/blockchain/litecoin/tatum_litecoin_api.dart';
+import 'package:tatum/src/services/blockchain/polygon/tatum_polygon_api.dart';
+import 'package:tatum/src/services/blockchain/solana/tatum_solana_api.dart';
+import 'package:tatum/src/services/blockchain/tron/tatum_tron_api.dart';
+import 'package:tatum/src/services/blockchain/vechain/tatum_vechain_api.dart';
+import 'package:tatum/src/services/blockchain/xinfin/tatum_xinfin_api.dart';
+import 'package:tatum/src/services/blockchain/xrp/tatum_xrp_api.dart';
 import 'injectible.config.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -52,16 +59,8 @@ abstract class RegisterModule {
 
   @singleton
   CombiningSmartInterceptor provideCombiningSmartInterceptor(
-    NetworkLogInterceptor logInterceptor,
-    NetworkAuthInterceptor authInterceptor,
-    NetworkErrorInterceptor errorInterceptor,
-    NetworkRefreshInterceptor refreshInterceptor,
-  ) =>
-      CombiningSmartInterceptor()
-        ..addInterceptor(authInterceptor)
-        ..addInterceptor(refreshInterceptor)
-        ..addInterceptor(errorInterceptor)
-        ..addInterceptor(logInterceptor);
+          NetworkAuthInterceptor authInterceptor) =>
+      CombiningSmartInterceptor()..addInterceptor(authInterceptor);
 
   @singleton
   Dio provideDio(CombiningSmartInterceptor interceptor) {
@@ -107,39 +106,84 @@ abstract class RegisterModule {
   }
 
   @singleton
-  BitcoinAPI bitcoinAPI() =>
-      BitcoinAPI(provideDio(CombiningSmartInterceptor()));
+  BitcoinAPI bitcoinAPI() => BitcoinAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 
   @singleton
-  AlgorandAPI algorandAPI() =>
-      AlgorandAPI(provideDio(CombiningSmartInterceptor()));
+  AlgorandAPI algorandAPI() => AlgorandAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 
   @singleton
-  BitcoinCashAPI bcashAPI() =>
-      BitcoinCashAPI(provideDio(CombiningSmartInterceptor()));
+  BitcoinCashAPI bcashAPI() => BitcoinCashAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 
   @singleton
-  BSCAPI bscAPI() => BSCAPI(provideDio(CombiningSmartInterceptor()));
+  BSCAPI bscAPI() => BSCAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 
   @singleton
-  BBCAPI bbcAPI() => BBCAPI(provideDio(CombiningSmartInterceptor()));
+  BBCAPI bbcAPI() => BBCAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 
   @singleton
-  CeloAPI celoAPI() => CeloAPI(provideDio(CombiningSmartInterceptor()));
+  CeloAPI celoAPI() => CeloAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 
   @singleton
-  DogeCoinAPI dogecoinAPI() =>
-      DogeCoinAPI(provideDio(CombiningSmartInterceptor()));
+  DogeCoinAPI dogecoinAPI() => DogeCoinAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 
   @singleton
-  ElrondAPI elrondAPI() => ElrondAPI(provideDio(CombiningSmartInterceptor()));
+  ElrondAPI elrondAPI() => ElrondAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 
   @singleton
-  EthereumAPI ethereumAPI() =>
-      EthereumAPI(provideDio(CombiningSmartInterceptor()));
+  EthereumAPI ethereumAPI() => EthereumAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 
   @singleton
-  FlowAPI flowAPI() => FlowAPI(provideDio(CombiningSmartInterceptor()));
+  FlowAPI flowAPI() => FlowAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  KlaytnAPI klaytnAPI() => KlaytnAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  HarmonyAPI harmonyAPI() => HarmonyAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  KuCoinAPI kuCoinAPI() => KuCoinAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  LitecoinAPI litecoinAPI() => LitecoinAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  PolygonAPI polygonAPI() => PolygonAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  SolanaAPI solanaAPI() => SolanaAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  TronAPI tronAPI() => TronAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  VeChainAPI veChainAPI() => VeChainAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  XinFinAPI xinfinAPI() => XinFinAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  XRPAPI xrpAPI() => XRPAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 }
 
 dynamic _parseAndDecode(String response) => jsonDecode(response);

@@ -140,14 +140,14 @@ class _DogeCoinAPI implements DogeCoinAPI {
   }
 
   @override
-  Future<GetBCashBlockByHashResponse> getBCashBlockByHash(
+  Future<GetDogecoinBlockByHashResponse> getDogecoinBlockByHash(
       {required hash}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<GetBCashBlockByHashResponse>(Options(
+        _setStreamType<GetDogecoinBlockByHashResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -159,19 +159,19 @@ class _DogeCoinAPI implements DogeCoinAPI {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = GetBCashBlockByHashResponse.fromJson(_result.data!);
+    final value = GetDogecoinBlockByHashResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<GetBCashTransactionResponse> getDogecoinTransactionByHash(
+  Future<DogecoinTransactionResponse> getDogecoinTransactionByHash(
       {required hash}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<GetBCashTransactionResponse>(Options(
+        _setStreamType<DogecoinTransactionResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -183,7 +183,7 @@ class _DogeCoinAPI implements DogeCoinAPI {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = GetBCashTransactionResponse.fromJson(_result.data!);
+    final value = DogecoinTransactionResponse.fromJson(_result.data!);
     return value;
   }
 

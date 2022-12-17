@@ -64,7 +64,7 @@ abstract class BitcoinCashAPI implements BitcoinCashService {
 
   @override
   @POST('bcash/transaction')
-  Future<SendAlgoResponse> sendBCH({@Body() required SendModel body});
+  Future<SendAlgoResponse> sendBCH({@Body() required SendUTXOModel body});
 
   @override
   @POST('bcash/broadcast')
@@ -140,7 +140,7 @@ abstract class BitcoinCashService {
   ///When sending BCH, you are charged a fee for the transaction, and you must sign the transaction with the private key of the blockchain address from which the fee will be deducted.
   ///Providing the private key in the API is not a secure way of signing transactions, because the private key can be stolen or exposed. Your private keys should never leave your security perimeter. You should use the private keys only for testing a solution you are building on the testnet of a blockchain.
   ///For signing transactions on the mainnet, we strongly recommend that you use the Tatum Key Management System (KMS) and provide the signature ID instead of the private key in the API. Alternatively, you can use the Tatum JavaScript client.
-  Future<SendAlgoResponse> sendBCH({@Body() required SendModel body});
+  Future<SendAlgoResponse> sendBCH({@Body() required SendUTXOModel body});
 
   ///
   ///5 credits per API call

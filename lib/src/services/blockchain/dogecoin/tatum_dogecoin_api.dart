@@ -11,7 +11,9 @@ import 'package:tatum/src/services/blockchain/bitcoin/entities/get_hash_bitcoin_
 import 'package:tatum/src/services/blockchain/bitcoin/models/generate_private_key_model.dart';
 import 'package:tatum/src/services/blockchain/bitcoin_cash/entities/bcash_tx_response.dart';
 import 'package:tatum/src/services/blockchain/bitcoin_cash/entities/get_bcash_block_by_hash_response.dart';
+import 'package:tatum/src/services/blockchain/dogecoin/entities/dogecoin_tx_response.dart';
 import 'package:tatum/src/services/blockchain/dogecoin/entities/generate_dogecoin_response.dart';
+import 'package:tatum/src/services/blockchain/dogecoin/entities/get_dogecoin_block_by_hash.dart';
 import 'package:tatum/src/services/blockchain/dogecoin/models/send_dogecoin_model.dart';
 
 part 'tatum_dogecoin_api.g.dart';
@@ -56,13 +58,13 @@ abstract class DogeCoinService {
   ///
   ///5 credits per API call
   ///Get Dogecoin Block detail by block hash or height.
-  Future<GetBCashBlockByHashResponse> getBCashBlockByHash(
+  Future<GetDogecoinBlockByHashResponse> getDogecoinBlockByHash(
       {@Path('hash') required String hash});
 
   ///
   ///5 credits per API call
   ///Get Dogecoin Transaction detail by transaction hash.
-  Future<GetBCashTransactionResponse> getDogecoinTransactionByHash(
+  Future<DogecoinTransactionResponse> getDogecoinTransactionByHash(
       {@Path('hash') required String hash});
 
   ///
@@ -120,12 +122,12 @@ abstract class DogeCoinAPI implements DogeCoinService {
 
   @override
   @GET('dogecoin/block/{hash}')
-  Future<GetBCashBlockByHashResponse> getBCashBlockByHash(
+  Future<GetDogecoinBlockByHashResponse> getDogecoinBlockByHash(
       {@Path('hash') required String hash});
 
   @override
   @GET('dogecoin/transaction/{hash}')
-  Future<GetBCashTransactionResponse> getDogecoinTransactionByHash(
+  Future<DogecoinTransactionResponse> getDogecoinTransactionByHash(
       {@Path('hash') required String hash});
 
   @override

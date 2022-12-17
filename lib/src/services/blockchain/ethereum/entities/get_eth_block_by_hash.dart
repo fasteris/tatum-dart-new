@@ -1,47 +1,54 @@
-import 'package:tatum/src/services/blockchain/bnb_beacon_chain/entities/transaction_entity.dart';
-import 'package:tatum/src/services/blockchain/bnb_smart_chain/entities/get_bsc_block_by_hash_response.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:tatum/src/services/blockchain/bnb_smart_chain/entities/logs_entity.dart';
+import 'package:tatum/src/services/blockchain/bnb_smart_chain/entities/transaction_entity.dart';
 
-class GetEthereumBlockByHashResponse extends GetBSCBlockByHashResponse {
+part 'get_eth_block_by_hash.g.dart';
+
+@JsonSerializable()
+class GetEthereumBlockByHashResponse {
+  final String difficulty;
+  final String extraData;
+  final int gasLimit;
+  final int gasUsed;
+  final String hash;
+  final String logsBloom;
+  final String miner;
+  final String mixHash;
+  final String nonce;
+  final int number;
+  final String parentHash;
+  final String receiptsRoot;
+  final String sha3Uncles;
+  final int size;
+  final String stateRoot;
+  final int timeStamp;
+  final String totalDifficulty;
+  final List<TransactionEntity> transactions;
+  final String transactionsRoot;
+
   GetEthereumBlockByHashResponse(
-      {required super.difficulty,
-      required super.extraData,
-      required super.gasLimit,
-      required super.gasUsed,
-      required super.hash,
-      required super.logsBloom,
-      required super.miner,
-      required super.mixHash,
-      required super.nonce,
-      required super.number,
-      required super.parentHash,
-      required super.receiptsRoot,
-      required super.sha3Uncles,
-      required super.size,
-      required super.stateRoot,
-      required super.timeStamp,
-      required super.totalDifficulty,
-      required super.transactions,
-      required super.transactionsRoot});
+      {required this.difficulty,
+      required this.extraData,
+      required this.gasLimit,
+      required this.gasUsed,
+      required this.hash,
+      required this.logsBloom,
+      required this.miner,
+      required this.mixHash,
+      required this.nonce,
+      required this.number,
+      required this.parentHash,
+      required this.receiptsRoot,
+      required this.sha3Uncles,
+      required this.size,
+      required this.stateRoot,
+      required this.timeStamp,
+      required this.totalDifficulty,
+      required this.transactions,
+      required this.transactionsRoot});
 
-  static fromJson(Map<String, dynamic> json) => GetBSCBlockByHashResponse(
-        difficulty: json['difficulty'] as String,
-        extraData: json['extraData'] as String,
-        gasLimit: json['gasLimit'] as int,
-        gasUsed: json['gasUsed'] as int,
-        hash: json['hash'] as String,
-        logsBloom: json['logsBloom'] as String,
-        miner: json['miner'] as String,
-        mixHash: json['mixHash'] as String,
-        nonce: json['nonce'] as String,
-        number: json['number'] as int,
-        parentHash: json['parentHash'] as String,
-        receiptsRoot: json['receiptsRoot'] as String,
-        sha3Uncles: json['sha3Uncles'] as String,
-        size: json['size'] as int,
-        stateRoot: json['stateRoot'] as String,
-        timeStamp: json['timeStamp'] as int,
-        totalDifficulty: json['totalDifficulty'] as String,
-        transactionsRoot: json['transactionsRoot'] as String,
-        transactions: [],
-      );
+  factory GetEthereumBlockByHashResponse.fromJson(Map<String, dynamic>? json) =>
+      _$GetEthereumBlockByHashResponseFromJson(json!);
+
+  Map<String, dynamic> toJson() => _$GetEthereumBlockByHashResponseToJson(this);
 }

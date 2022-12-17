@@ -12,6 +12,17 @@ import 'package:tatum/src/services/blockchain/dogecoin/tatum_dogecoin_api.dart';
 import 'package:tatum/src/services/blockchain/elrond/tatum_elrond_api.dart';
 import 'package:tatum/src/services/blockchain/ethereum/tatum_ethereum_api.dart';
 import 'package:tatum/src/services/blockchain/flow/tatum_flow_api.dart';
+import 'package:tatum/src/services/blockchain/harmony/tatum_harmony_api.dart';
+import 'package:tatum/src/services/blockchain/klaytn/tatum_klaytn_api.dart';
+import 'package:tatum/src/services/blockchain/kucoin/tatum_kucoin_api.dart';
+import 'package:tatum/src/services/blockchain/litecoin/tatum_litecoin_api.dart';
+import 'package:tatum/src/services/blockchain/polygon/tatum_polygon_api.dart';
+import 'package:tatum/src/services/blockchain/solana/tatum_solana_api.dart';
+import 'package:tatum/src/services/blockchain/tron/tatum_tron_api.dart';
+import 'package:tatum/src/services/blockchain/vechain/tatum_vechain_api.dart';
+import 'package:tatum/src/services/blockchain/xinfin/tatum_xinfin_api.dart';
+import 'package:tatum/src/services/blockchain/xrp/tatum_xrp_api.dart';
+export 'src/core/tatum_exports.dart';
 
 /// A Tatum.
 class Tatum {
@@ -21,15 +32,15 @@ class Tatum {
 
   static final Tatum _instance = Tatum._privateConstructor();
 
+  static final Tatum _v3 = Tatum._privateConstructor();
+
   static Tatum get instance => _instance;
 
-  static void config() async {
-    await configureDependencies();
-  }
+  static Tatum get v3 => _v3;
 
-  void setKey(String key) async {
-    _apiKey = key;
-  }
+  static void config() async => await configureDependencies();
+
+  void setKey(String key) => _apiKey = key;
 
   String getApiKey() => _apiKey.toString();
 
@@ -54,4 +65,24 @@ class Tatum {
   EthereumAPI ethereum = Ethereum.api;
 
   FlowAPI flow = Flow.api;
+
+  HarmonyAPI harmony = Harmony.api;
+
+  KlaytnAPI klaytn = Klaytn.api;
+
+  KuCoinAPI kucoin = KuCoin.api;
+
+  LitecoinAPI litecoin = Litecoin.api;
+
+  PolygonAPI polygon = Polygon.api;
+
+  SolanaAPI solana = Solana.api;
+
+  TronAPI tron = Tron.api;
+
+  VeChainAPI vechain = VeChain.api;
+
+  XinFinAPI xinfin = XinFin.api;
+
+  XRPAPI ripple = Ripple.api;
 }

@@ -18,9 +18,11 @@ Map<String, dynamic> _$SendAlgoResponseToJson(SendAlgoResponse instance) =>
 
 TXIDResponse _$TXIDResponseFromJson(Map<String, dynamic> json) => TXIDResponse(
       txId: json['txId'] as String,
+      confirmed: json['confirmed'] as String?,
     );
 
 Map<String, dynamic> _$TXIDResponseToJson(TXIDResponse instance) =>
     <String, dynamic>{
       'txId': instance.txId,
+      'confirmed': instance.confirmed,
     };
