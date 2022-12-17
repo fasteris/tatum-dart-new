@@ -44,7 +44,7 @@ For example of using these APIs from a Dart console example see the example in
 this package. For an example of usage in a server application,
 [see this example](https://github.com/samuelezedi/tatum-dart/tree/main/example).
 
-## Available Google APIs
+## Available Tatum APIs
 
 The following is a list of APIs that are currently available inside this
 package.
