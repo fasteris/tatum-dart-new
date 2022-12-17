@@ -32,10 +32,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final tatum = Tatum.instance;
 
+  String addr = 'noting';
+  String addr2 = 'noting';
+
   @override
   void initState() {
     super.initState();
-    tatum.setKey('f7c45865-5e5a-4fad-886b-bde72d89b7ce');
+    tatum.setKey('enter-api-key');
   }
 
   @override
@@ -43,15 +46,54 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          ElevatedButton(
-              onPressed: () async {
-                final bbc = await tatum.bnbBeaconChain.generateWallet();
-                bbc.
+          Row(
+            children: [
+              Flexible(child: const Text('Eth address:')),
+              Text(addr),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              Flexible(child: const Text('XRP address:')),
+              Text(addr2),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                  onPressed: () async {
+                    final eth = await tatum.ethereum.generateWallet();
+                    final address = await tatum.ethereum
+                        .generateEthereumAccountAddressFromXPubKey(
+                            xpub: eth.xpub, index: 1);
+                    setState(() {
+                      addr = address.address;
+                    });
 
-                // print(data.toJson());
-                // print(data2.toJson());
-              },
-              child: const Text('Test'))
+                    // print(data.toJson());
+                    // print(data2.toJson());
+                  },
+                  child: const Text('Test Eth')),
+              ElevatedButton(
+                  onPressed: () async {
+                    final xrp = await tatum.ripple.generateAccount();
+
+                    setState(() {
+                      addr2 = xrp.address!;
+                    });
+
+                    // print(data.toJson());
+                    // print(data2.toJson());
+                  },
+                  child: const Text('Test Ripple')),
+            ],
+          )
         ]),
       ),
     );
