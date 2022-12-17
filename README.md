@@ -29,16 +29,23 @@ Tatum.config()
 inside `main()` function, then instanciat by doing this:
 
 ```dart
-Tatum.instance;
+final tatum = Tatum.instance;
 ```
 OR
 ```dart
-Tatum.v3;
+final tatum = Tatum.v3;
 ```
 Then set APIkey
 ```dart
-Tatum.setKey('your-api-key');
+tatum.setKey('your-api-key');
 ```
+An example call
+```dart
+final bitcoin = tatum.bitcoin;
+final wallet = await bitcoin.generateWallet();
+final address = await bitcoin.generateAddress(xpub: wallet.xpub, index: 1);
+```
+That simple.
 
 ## Additional information
 
