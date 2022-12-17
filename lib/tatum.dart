@@ -38,7 +38,7 @@ class Tatum {
 
   static Tatum get v3 => _v3;
 
-  static void config() async => await configureDependencies();
+  static void initArchitecture() async => await configureDependencies();
 
   void setKey(String key) => _apiKey = key;
 
