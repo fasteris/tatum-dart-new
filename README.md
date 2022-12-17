@@ -24,7 +24,7 @@ To get started copy: `tatum: ^1.0.1` paste into your `pubspec.yaml` and run `flu
 To use, simple add
 
 ```dart
-Tatum.config()
+Tatum.config();
 ```
 inside `main()` function, then instanciat by doing this:
 
