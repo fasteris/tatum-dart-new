@@ -17,7 +17,7 @@ Generated Dart libraries for accessing Tatum APIs.
 
 ## Getting started
 
-To get started copy: `tatum: ^1.0.1` paste into your `pubspec.yaml` and run `flutter pub get`
+To get started copy: `tatum: ^1.0.2` paste into your `pubspec.yaml` and run `flutter pub get`
 
 Then import
 ```dart

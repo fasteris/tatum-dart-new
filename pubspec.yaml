@@ -1,6 +1,6 @@
 name: tatum
 description: Generated Dart libraries for accessing Tatum APIs.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/samuelezedi/tatum-dart
 
 environment:

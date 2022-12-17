@@ -3,7 +3,7 @@ import 'package:tatum/tatum.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Tatum.config();
+  Tatum.initArchitecture();
   runApp(const MyApp());
 }
 
