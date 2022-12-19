@@ -28,6 +28,7 @@ import 'package:tatum/src/services/blockchain/tron/tatum_tron_api.dart';
 import 'package:tatum/src/services/blockchain/vechain/tatum_vechain_api.dart';
 import 'package:tatum/src/services/blockchain/xinfin/tatum_xinfin_api.dart';
 import 'package:tatum/src/services/blockchain/xrp/tatum_xrp_api.dart';
+import 'package:tatum/src/services/virtual_accounts/account/tatum_account_api.dart';
 import 'injectible.config.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -179,6 +180,10 @@ abstract class RegisterModule {
 
   @singleton
   XRPAPI xrpAPI() => XRPAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  VirtualAccountAPI virtualAccountAPI() => VirtualAccountAPI(
       provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 }
 

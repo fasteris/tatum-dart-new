@@ -10,3 +10,9 @@
 
 * code refactor
 * readme edit
+
+## 1.0.4
+
+* code refactor
+* readme edit(added complete documentation of all chains added)
+* add virtual account (Account APIS)

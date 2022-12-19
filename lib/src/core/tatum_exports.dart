@@ -26,3 +26,8 @@ export '../services/blockchain/tron/models/send_trx_model.dart';
 export '../services/blockchain/vechain/models/send_vechain_model.dart';
 export '../services/blockchain/xrp/models/send_xrp_model.dart';
 export '../services/blockchain/xrp/models/modify_xrp_model.dart';
+export '../services/virtual_accounts/account/models/block_account_in_action_model.dart';
+export '../services/virtual_accounts/account/models/create_account_model.dart';
+export '../services/virtual_accounts/account/models/customer_entity.dart';
+export '../services/virtual_accounts/account/models/unblock_amount_in_account_model.dart';
+export '../services/virtual_accounts/account/models/update_account_model.dart';

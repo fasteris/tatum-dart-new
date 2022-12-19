@@ -19,6 +19,7 @@ import 'package:tatum/src/services/blockchain/tron/tatum_tron_api.dart';
 import 'package:tatum/src/services/blockchain/vechain/tatum_vechain_api.dart';
 import 'package:tatum/src/services/blockchain/xinfin/tatum_xinfin_api.dart';
 import 'package:tatum/src/services/blockchain/xrp/tatum_xrp_api.dart';
+import 'package:tatum/src/services/virtual_accounts/account/tatum_account_api.dart';
 
 class Bitcoin {
   static BitcoinAPI api = getIt<BitcoinAPI>();
@@ -98,4 +99,8 @@ class XinFin {
 
 class Ripple {
   static XRPAPI api = getIt<XRPAPI>();
+}
+
+class VAaccount {
+  static VirtualAccountAPI api = getIt<VirtualAccountAPI>();
 }
