@@ -33,7 +33,9 @@ import '../services/blockchain/vechain/tatum_vechain_api.dart' as _i21;
 import '../services/blockchain/xinfin/tatum_xinfin_api.dart' as _i23;
 import '../services/blockchain/xrp/tatum_xrp_api.dart' as _i22;
 import '../services/virtual_accounts/account/tatum_account_api.dart' as _i27;
-import 'injectible.dart' as _i28; // ignore_for_file: unnecessary_lambdas
+import '../services/virtual_accounts/transaction/tatum_transaction_api.dart'
+    as _i28;
+import 'injectible.dart' as _i29; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -90,6 +92,8 @@ _i1.GetIt $initGetIt(
   gh.singleton<_i21.VeChainService>(_i21.VeChainAPI(get<_i25.Dio>()));
   gh.singleton<_i27.VirtualAccountService>(
       _i27.VirtualAccountAPI(get<_i25.Dio>()));
+  gh.singleton<_i28.VirtualTransactiontService>(
+      _i28.VirtualTransactionAPI(get<_i25.Dio>()));
   gh.singleton<_i22.XRPService>(_i22.XRPAPI(get<_i25.Dio>()));
   gh.singleton<_i23.XinFinService>(_i23.XinFinAPI(get<_i25.Dio>()));
   gh.singleton<_i3.AlgorandService>(_i3.AlgorandAPI(get<_i25.Dio>()));
@@ -101,4 +105,4 @@ _i1.GetIt $initGetIt(
   return get;
 }
 
-class _$RegisterModule extends _i28.RegisterModule {}
+class _$RegisterModule extends _i29.RegisterModule {}
