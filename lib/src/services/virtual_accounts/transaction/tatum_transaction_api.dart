@@ -7,7 +7,7 @@ import 'package:tatum/src/services/virtual_accounts/transaction/models/send_paym
 
 part 'tatum_transaction_api.g.dart';
 
-abstract class VirtualTransactiontService {
+abstract class VirtualTransactionService {
   ///
   ///Sends a payment within Tatum Private Ledger. All assets are settled instantly.
   ///When a transaction is settled, 2 transaction records are created, 1 for each of the participants. These 2 records are connected via a transaction reference, which is the same for both of them.
@@ -51,9 +51,9 @@ abstract class VirtualTransactiontService {
       {@Path('reference') required String reference});
 }
 
-@Singleton(as: VirtualTransactiontService)
+@Singleton(as: VirtualTransactionService)
 @RestApi()
-abstract class VirtualTransactionAPI implements VirtualTransactiontService {
+abstract class VirtualTransactionAPI implements VirtualTransactionService {
   @factoryMethod
   factory VirtualTransactionAPI(Dio dio) = _VirtualTransactionAPI;
 
