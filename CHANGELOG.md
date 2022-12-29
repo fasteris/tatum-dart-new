@@ -16,3 +16,8 @@
 * code refactor
 * readme edit(added complete documentation of all chains added)
 * add virtual account (Account APIS)
+
+## 1.0.7
+
+* added all virtual currency apis
+

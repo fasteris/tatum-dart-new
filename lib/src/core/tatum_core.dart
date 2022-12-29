@@ -20,6 +20,14 @@ import 'package:tatum/src/services/blockchain/vechain/tatum_vechain_api.dart';
 import 'package:tatum/src/services/blockchain/xinfin/tatum_xinfin_api.dart';
 import 'package:tatum/src/services/blockchain/xrp/tatum_xrp_api.dart';
 import 'package:tatum/src/services/virtual_accounts/account/tatum_account_api.dart';
+import 'package:tatum/src/services/virtual_accounts/blockchain_addresses/tatum_blockchain_addresses_api.dart';
+import 'package:tatum/src/services/virtual_accounts/blockchain_operations/tatum_blockchain_operations_api.dart';
+import 'package:tatum/src/services/virtual_accounts/customer/tatum_customer_api.dart';
+import 'package:tatum/src/services/virtual_accounts/deposit/tatum_deposits_api.dart';
+import 'package:tatum/src/services/virtual_accounts/order_book/tatum_order_book_api.dart';
+import 'package:tatum/src/services/virtual_accounts/transaction/tatum_transaction_api.dart';
+import 'package:tatum/src/services/virtual_accounts/virtual_currency/tatum_vc_api.dart';
+import 'package:tatum/src/services/virtual_accounts/withdrawal/tatum_withdrawal_api.dart';
 
 class Bitcoin {
   static BitcoinAPI api = getIt<BitcoinAPI>();
@@ -101,6 +109,38 @@ class Ripple {
   static XRPAPI api = getIt<XRPAPI>();
 }
 
-class VAaccount {
+class VirtualAccount {
   static VirtualAccountAPI api = getIt<VirtualAccountAPI>();
+}
+
+class BlockchainAddresses {
+  static BlockchainAddressesAPI api = getIt<BlockchainAddressesAPI>();
+}
+
+class BlockchainOperations {
+  static BlockchainOperationsAPI api = getIt<BlockchainOperationsAPI>();
+}
+
+class VirtualCustomer {
+  static VirtualCustomerAPI api = getIt<VirtualCustomerAPI>();
+}
+
+class Deposit {
+  static DepositAPI api = getIt<DepositAPI>();
+}
+
+class Orderbook {
+  static OrderBookAPI api = getIt<OrderBookAPI>();
+}
+
+class VirtualTransaction {
+  static VirtualTransactionAPI api = getIt<VirtualTransactionAPI>();
+}
+
+class VirtualCurrency {
+  static VirtualCurrencyAPI api = getIt<VirtualCurrencyAPI>();
+}
+
+class Withdrawal {
+  static WithdrawalAPI api = getIt<WithdrawalAPI>();
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tatum/tatum.dart';
+import 'package:universal_html/controller.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +40,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     tatum.setKey('enter-api-key');
+    // test();
   }
 
   @override
@@ -68,17 +70,6 @@ class _HomeState extends State<Home> {
             children: [
               ElevatedButton(
                   onPressed: () async {
-                    
-                    final eth = await tatum.ethereum.generateWallet();
-                    final address = await tatum.ethereum
-                        .generateEthereumAccountAddressFromXPubKey(
-                            xpub: eth.xpub, index: 1);
-                    setState(() {
-                      addr = address.address;
-                    });
-
-                    
-
                     // print(data.toJson());
                     // print(data2.toJson());
                   },
@@ -87,8 +78,13 @@ class _HomeState extends State<Home> {
                   onPressed: () async {
                     final xrp = await tatum.ripple.generateAccount();
 
+                    addr2 = xrp.address!;
+                    final eth = await tatum.ethereum.generateWallet();
+                    final address = await tatum.ethereum
+                        .generateEthereumAccountAddressFromXPubKey(
+                            xpub: eth.xpub, index: 1);
                     setState(() {
-                      addr2 = xrp.address!;
+                      addr = address.address;
                     });
 
                     // print(data.toJson());
