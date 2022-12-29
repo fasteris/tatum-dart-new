@@ -28,6 +28,15 @@ import 'package:tatum/src/services/blockchain/tron/tatum_tron_api.dart';
 import 'package:tatum/src/services/blockchain/vechain/tatum_vechain_api.dart';
 import 'package:tatum/src/services/blockchain/xinfin/tatum_xinfin_api.dart';
 import 'package:tatum/src/services/blockchain/xrp/tatum_xrp_api.dart';
+import 'package:tatum/src/services/virtual_accounts/account/tatum_account_api.dart';
+import 'package:tatum/src/services/virtual_accounts/blockchain_addresses/tatum_blockchain_addresses_api.dart';
+import 'package:tatum/src/services/virtual_accounts/blockchain_operations/tatum_blockchain_operations_api.dart';
+import 'package:tatum/src/services/virtual_accounts/customer/tatum_customer_api.dart';
+import 'package:tatum/src/services/virtual_accounts/deposit/tatum_deposits_api.dart';
+import 'package:tatum/src/services/virtual_accounts/order_book/tatum_order_book_api.dart';
+import 'package:tatum/src/services/virtual_accounts/transaction/tatum_transaction_api.dart';
+import 'package:tatum/src/services/virtual_accounts/virtual_currency/tatum_vc_api.dart';
+import 'package:tatum/src/services/virtual_accounts/withdrawal/tatum_withdrawal_api.dart';
 import 'injectible.config.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -179,6 +188,42 @@ abstract class RegisterModule {
 
   @singleton
   XRPAPI xrpAPI() => XRPAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  VirtualAccountAPI virtualAccountAPI() => VirtualAccountAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  BlockchainAddressesAPI blockchainAddressesAPI() => BlockchainAddressesAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  BlockchainOperationsAPI blockchainOperationAPI() => BlockchainOperationsAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  VirtualCustomerAPI virtualCustomerAPI() => VirtualCustomerAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  DepositAPI depositAPI() => DepositAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  OrderBookAPI orderBookAPI() => OrderBookAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  VirtualTransactionAPI virtualTransactionAPI() => VirtualTransactionAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  VirtualCurrencyAPI virtualCurrencyAPI() => VirtualCurrencyAPI(
+      provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
+
+  @singleton
+  WithdrawalAPI withdrawalAPI() => WithdrawalAPI(
       provideDio(provideCombiningSmartInterceptor(NetworkAuthInterceptor())));
 }
 

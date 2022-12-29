@@ -22,6 +22,15 @@ import 'package:tatum/src/services/blockchain/tron/tatum_tron_api.dart';
 import 'package:tatum/src/services/blockchain/vechain/tatum_vechain_api.dart';
 import 'package:tatum/src/services/blockchain/xinfin/tatum_xinfin_api.dart';
 import 'package:tatum/src/services/blockchain/xrp/tatum_xrp_api.dart';
+import 'package:tatum/src/services/virtual_accounts/account/tatum_account_api.dart';
+import 'package:tatum/src/services/virtual_accounts/blockchain_addresses/tatum_blockchain_addresses_api.dart';
+import 'package:tatum/src/services/virtual_accounts/blockchain_operations/tatum_blockchain_operations_api.dart';
+import 'package:tatum/src/services/virtual_accounts/customer/tatum_customer_api.dart';
+import 'package:tatum/src/services/virtual_accounts/deposit/tatum_deposits_api.dart';
+import 'package:tatum/src/services/virtual_accounts/order_book/tatum_order_book_api.dart';
+import 'package:tatum/src/services/virtual_accounts/transaction/tatum_transaction_api.dart';
+import 'package:tatum/src/services/virtual_accounts/virtual_currency/tatum_vc_api.dart';
+import 'package:tatum/src/services/virtual_accounts/withdrawal/tatum_withdrawal_api.dart';
 export 'src/core/tatum_exports.dart';
 
 /// A Tatum.
@@ -85,4 +94,22 @@ class Tatum {
   XinFinAPI xinfin = XinFin.api;
 
   XRPAPI ripple = Ripple.api;
+
+  VirtualAccountAPI virtualAccount = VirtualAccount.api;
+
+  BlockchainAddressesAPI blockchainAddresses = BlockchainAddresses.api;
+
+  BlockchainOperationsAPI blockchainOperations = BlockchainOperations.api;
+
+  VirtualCustomerAPI virtualCustomer = VirtualCustomer.api;
+
+  DepositAPI deposit = Deposit.api;
+
+  OrderBookAPI orderbook = Orderbook.api;
+
+  VirtualTransactionAPI virtualTransaction = VirtualTransaction.api;
+
+  VirtualCurrencyAPI virtualCurrency = VirtualCurrency.api;
+
+  WithdrawalAPI withdrawal = Withdrawal.api;
 }

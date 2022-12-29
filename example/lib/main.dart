@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tatum/tatum.dart';
+import 'package:universal_html/controller.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +40,50 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     tatum.setKey('enter-api-key');
+    // test();
+  }
+
+  void test() async {
+    final controller = WindowController();
+    await controller.openHttp(
+      uri: Uri.parse("https://coincodex.com/convert/bitcoin/tether"),
+    );
+
+    // Select the top story using a CSS query
+    final topStoryTitle =
+        controller.window!.document.querySelectorAll(".rate").first.text;
+
+    final moneyside = topStoryTitle!.split("=");
+    final value = moneyside.last.trim().split(" ").first.trim();
+
+    // Print result
+    print(value.toString());
+  }
+
+  Future<double> convert(
+      {required String from, required String to, required int amount}) async {
+    final controller = WindowController();
+    await controller.openHttp(
+      uri: Uri.parse("https://coincodex.com/convert/$from/$to"),
+    );
+
+    // Select the top story using a CSS query
+    try {
+      final topStoryTitle =
+          controller.window!.document.querySelectorAll(".rate").first.text;
+
+      final moneyside = topStoryTitle!.split("=");
+      final value = moneyside.last.trim().split(" ").first.trim();
+
+      // Print result
+      print(value);
+      var result = double.parse(value.toString().replaceAll(',', '')) * amount;
+      return result;
+    } catch (e, stacktrace) {
+      print("$e: $stacktrace");
+      return 0;
+    }
+
   }
 
   @override
@@ -68,17 +113,19 @@ class _HomeState extends State<Home> {
             children: [
               ElevatedButton(
                   onPressed: () async {
-                    
-                    final eth = await tatum.ethereum.generateWallet();
-                    final address = await tatum.ethereum
-                        .generateEthereumAccountAddressFromXPubKey(
-                            xpub: eth.xpub, index: 1);
-                    setState(() {
-                      addr = address.address;
-                    });
+                    // final eth = await tatum.ethereum.generateWallet();
+                    // final address = await tatum.ethereum
+                    //     .generateEthereumAccountAddressFromXPubKey(
+                    //         xpub: eth.xpub, index: 1);
+                    // setState(() {
+                    //   addr = address.address;
+                    // });
 
                     // print(data.toJson());
                     // print(data2.toJson());
+                    final con = await convert(
+                        from: 'tether', to: 'bitcoin', amount: 400);
+                    print(con);
                   },
                   child: const Text('Test Eth')),
               ElevatedButton(
