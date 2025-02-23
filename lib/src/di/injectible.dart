@@ -82,7 +82,7 @@ abstract class RegisterModule {
       ),
     );
     // ignore: avoid_as
-    (dio.transformer as DefaultTransformer).jsonDecodeCallback = parseJson;
+    dio.transformer = DefaultTransformer(jsonDecodeCallback: parseJson);
     dio.interceptors
       ..add(interceptor)
       ..add(
