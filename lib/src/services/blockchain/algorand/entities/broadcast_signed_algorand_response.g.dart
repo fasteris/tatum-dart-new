@@ -10,7 +10,7 @@ BroadcastSignedAlgorandResponse _$BroadcastSignedAlgorandResponseFromJson(
         Map<String, dynamic> json) =>
     BroadcastSignedAlgorandResponse(
       txId: json['txId'] as String,
-      assetIndex: json['assetIndex'] as int,
+      assetIndex: (json['assetIndex'] as num).toInt(),
       confirmed: json['confirmed'] as bool,
       failed: json['failed'] as bool,
     );

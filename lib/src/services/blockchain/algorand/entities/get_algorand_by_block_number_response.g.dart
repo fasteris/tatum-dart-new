@@ -12,11 +12,11 @@ GetAlgorandByBlockResponse _$GetAlgorandByBlockResponseFromJson(
       previousBlockHash: json['previousBlockHash'] as String,
       genesisHash: json['genesisHash'] as String,
       genesisId: json['genesisId'] as String,
-      round: json['round'] as int,
+      round: (json['round'] as num).toInt(),
       seed: json['seed'] as String,
-      timestamp: json['timestamp'] as int,
+      timestamp: (json['timestamp'] as num).toInt(),
       txn: json['txn'] as String,
-      txnc: json['txnc'] as int,
+      txnc: (json['txnc'] as num).toInt(),
       txns: (json['txns'] as List<dynamic>)
           .map((e) => TXNSEntity.fromJson(e as Map<String, dynamic>?))
           .toList(),

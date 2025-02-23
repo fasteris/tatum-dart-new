@@ -10,12 +10,12 @@ InternalTransactionEntity _$InternalTransactionEntityFromJson(
         Map<String, dynamic> json) =>
     InternalTransactionEntity(
       value: json['value'] as String?,
-      blockNumber: json['blockNumber'] as int?,
+      blockNumber: (json['blockNumber'] as num?)?.toInt(),
       contractAddress: json['contractAddress'] as String?,
       errCode: json['errCode'] as String?,
       from: json['from'] as String?,
-      gas: json['gas'] as int?,
-      gasUsed: json['gasUsed'] as int?,
+      gas: (json['gas'] as num?)?.toInt(),
+      gasUsed: (json['gasUsed'] as num?)?.toInt(),
       hash: json['hash'] as String?,
       input: json['input'] as String?,
       isError: json['isError'] as String?,

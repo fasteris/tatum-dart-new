@@ -11,8 +11,8 @@ CreateBlkChainAddressesResponse _$CreateBlkChainAddressesResponseFromJson(
     CreateBlkChainAddressesResponse(
       address: json['address'] as String?,
       currency: json['currency'] as String?,
-      derivationKey: json['derivationKey'] as int?,
-      destinationTag: json['destinationTag'] as int?,
+      derivationKey: (json['derivationKey'] as num?)?.toInt(),
+      destinationTag: (json['destinationTag'] as num?)?.toInt(),
       memo: json['memo'] as String?,
       message: json['message'] as String?,
       xpub: json['xpub'] as String?,

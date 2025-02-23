@@ -10,10 +10,10 @@ EGLDBlockByHashResponse _$EGLDBlockByHashResponseFromJson(
         Map<String, dynamic> json) =>
     EGLDBlockByHashResponse(
       hash: json['hash'] as String?,
-      nonce: json['nonce'] as int?,
-      round: json['round'] as int?,
-      epoch: json['epoch'] as int?,
-      numTxs: json['numTxs'] as int?,
+      nonce: (json['nonce'] as num?)?.toInt(),
+      round: (json['round'] as num?)?.toInt(),
+      epoch: (json['epoch'] as num?)?.toInt(),
+      numTxs: (json['numTxs'] as num?)?.toInt(),
       prevBlockHash: json['prevBlockHash'] as String?,
       shardBlocks: (json['shardBlocks'] as List<dynamic>?)
           ?.map((e) => e == null

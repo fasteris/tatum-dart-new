@@ -8,7 +8,7 @@ part of 'current_tron_block_response.dart';
 
 CurrentTronBlock _$CurrentTronBlockFromJson(Map<String, dynamic> json) =>
     CurrentTronBlock(
-      blockNumber: json['blockNumber'] as int?,
+      blockNumber: (json['blockNumber'] as num?)?.toInt(),
       hash: json['hash'] as String?,
       testnet: json['testnet'] as bool?,
     );

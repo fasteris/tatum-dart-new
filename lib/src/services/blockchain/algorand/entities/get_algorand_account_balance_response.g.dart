@@ -12,7 +12,7 @@ GetAlgorandAccountBalanceResponse _$GetAlgorandAccountBalanceResponseFromJson(
       asset: (json['asset'] as List<dynamic>)
           .map((e) => AssetEntity.fromJson(e as Map<String, dynamic>?))
           .toList(),
-      balance: json['balance'] as int,
+      balance: (json['balance'] as num).toInt(),
     );
 
 Map<String, dynamic> _$GetAlgorandAccountBalanceResponseToJson(

@@ -7,8 +7,8 @@ part of 'block_entity.dart';
 // **************************************************************************
 
 BlockEntity _$BlockEntityFromJson(Map<String, dynamic> json) => BlockEntity(
-      shardID: json['shardID'] as int,
-      blockNumber: json['blockNumber'] as int,
+      shardID: (json['shardID'] as num).toInt(),
+      blockNumber: (json['blockNumber'] as num).toInt(),
     );
 
 Map<String, dynamic> _$BlockEntityToJson(BlockEntity instance) =>

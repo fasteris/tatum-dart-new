@@ -8,7 +8,7 @@ part of 'to_entity.dart';
 
 ToEntity _$ToEntityFromJson(Map<String, dynamic> json) => ToEntity(
       address: json['address'] as String,
-      value: json['value'] as int,
+      value: (json['value'] as num).toInt(),
     );
 
 Map<String, dynamic> _$ToEntityToJson(ToEntity instance) => <String, dynamic>{

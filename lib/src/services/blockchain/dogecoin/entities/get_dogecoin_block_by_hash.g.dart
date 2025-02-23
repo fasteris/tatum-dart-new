@@ -10,21 +10,21 @@ GetDogecoinBlockByHashResponse _$GetDogecoinBlockByHashResponseFromJson(
         Map<String, dynamic> json) =>
     GetDogecoinBlockByHashResponse(
       hash: json['hash'] as String,
-      size: json['size'] as int,
-      height: json['height'] as int,
+      size: (json['size'] as num).toInt(),
+      height: (json['height'] as num).toInt(),
       merkleRoot: json['merkleRoot'] as String,
       tx: (json['tx'] as List<dynamic>)
           .map((e) =>
               GetBCashTransactionResponse.fromJson(e as Map<String, dynamic>?))
           .toList(),
-      version: json['version'] as int,
-      confirmations: json['confirmations'] as int,
-      difficulty: json['difficulty'] as int,
+      version: (json['version'] as num).toInt(),
+      confirmations: (json['confirmations'] as num).toInt(),
+      difficulty: (json['difficulty'] as num).toInt(),
       nextBlockHash: json['nextblockhash'] as String,
-      nonce: json['nonce'] as int,
+      nonce: (json['nonce'] as num).toInt(),
       previousBlockHash: json['previousblockhash'] as String,
-      time: json['time'] as int,
-      weight: json['weight'] as int?,
+      time: (json['time'] as num).toInt(),
+      weight: (json['weight'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$GetDogecoinBlockByHashResponseToJson(

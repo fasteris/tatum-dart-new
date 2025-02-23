@@ -7,8 +7,8 @@ part of 'asset_entity.dart';
 // **************************************************************************
 
 AssetEntity _$AssetEntityFromJson(Map<String, dynamic> json) => AssetEntity(
-      amount: json['amount'] as int,
-      assetIndex: json['assetIndex'] as int,
+      amount: (json['amount'] as num).toInt(),
+      assetIndex: (json['assetIndex'] as num).toInt(),
     );
 
 Map<String, dynamic> _$AssetEntityToJson(AssetEntity instance) =>

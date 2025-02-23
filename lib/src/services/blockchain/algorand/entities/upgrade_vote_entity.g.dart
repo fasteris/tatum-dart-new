@@ -8,7 +8,7 @@ part of 'upgrade_vote_entity.dart';
 
 UpgradeVoteEntity _$UpgradeVoteEntityFromJson(Map<String, dynamic> json) =>
     UpgradeVoteEntity(
-      upgradeDelay: json['upgrade-delay'] as int,
+      upgradeDelay: (json['upgrade-delay'] as num).toInt(),
       upgradeApprove: json['upgrade-approve'] as String,
     );
 

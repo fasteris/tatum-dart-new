@@ -11,9 +11,9 @@ DogecoinTransactionResponse _$DogecoinTransactionResponseFromJson(
     DogecoinTransactionResponse(
       txid: json['txid'] as String,
       vin: json['vin'] as List<dynamic>,
-      locktime: json['locktime'] as int,
+      locktime: (json['locktime'] as num).toInt(),
       vout: json['vout'] as List<dynamic>,
-      version: json['version'] as int,
+      version: (json['version'] as num).toInt(),
     );
 
 Map<String, dynamic> _$DogecoinTransactionResponseToJson(

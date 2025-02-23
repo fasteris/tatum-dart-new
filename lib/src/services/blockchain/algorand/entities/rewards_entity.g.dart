@@ -8,11 +8,12 @@ part of 'rewards_entity.dart';
 
 RewadsEntity _$RewadsEntityFromJson(Map<String, dynamic> json) => RewadsEntity(
       feeSink: json['fee-sink'] as String,
-      rewardsCalculationRound: json['rewards-calculation-round'] as int,
-      rewardsLevel: json['rewards-level'] as int,
+      rewardsCalculationRound:
+          (json['rewards-calculation-round'] as num).toInt(),
+      rewardsLevel: (json['rewards-level'] as num).toInt(),
       rewardsPool: json['rewards-pool'] as String,
-      rewardsRate: json['rewards-rate'] as int,
-      rewardsResidue: json['rewards-residue'] as int,
+      rewardsRate: (json['rewards-rate'] as num).toInt(),
+      rewardsResidue: (json['rewards-residue'] as num).toInt(),
     );
 
 Map<String, dynamic> _$RewadsEntityToJson(RewadsEntity instance) =>

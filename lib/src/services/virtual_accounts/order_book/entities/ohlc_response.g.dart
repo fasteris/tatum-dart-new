@@ -7,7 +7,7 @@ part of 'ohlc_response.dart';
 // **************************************************************************
 
 OHLCResponse _$OHLCResponseFromJson(Map<String, dynamic> json) => OHLCResponse(
-      timestamp: json['timestamp'] as int?,
+      timestamp: (json['timestamp'] as num?)?.toInt(),
       close: json['close'] as String?,
       high: json['high'] as String?,
       low: json['low'] as String?,

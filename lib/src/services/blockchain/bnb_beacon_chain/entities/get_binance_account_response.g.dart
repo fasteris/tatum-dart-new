@@ -9,13 +9,13 @@ part of 'get_binance_account_response.dart';
 GetBinanceAccountResponse _$GetBinanceAccountResponseFromJson(
         Map<String, dynamic> json) =>
     GetBinanceAccountResponse(
-      accountNumber: json['account_number'] as int,
+      accountNumber: (json['account_number'] as num).toInt(),
       address: json['address'] as String,
       balances: (json['balances'] as List<dynamic>)
           .map((e) => BalanceEntity.fromJson(e as Map<String, dynamic>?))
           .toList(),
-      flags: json['flags'] as int,
-      sequence: json['sequence'] as int,
+      flags: (json['flags'] as num).toInt(),
+      sequence: (json['sequence'] as num).toInt(),
     );
 
 Map<String, dynamic> _$GetBinanceAccountResponseToJson(

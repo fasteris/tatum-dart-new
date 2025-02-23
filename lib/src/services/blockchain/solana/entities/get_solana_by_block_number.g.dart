@@ -9,10 +9,10 @@ part of 'get_solana_by_block_number.dart';
 GetSolanaBlockByNumberResponse _$GetSolanaBlockByNumberResponseFromJson(
         Map<String, dynamic> json) =>
     GetSolanaBlockByNumberResponse(
-      blockHeight: json['blockHeight'] as int?,
-      blockTime: json['blockTime'] as int?,
+      blockHeight: (json['blockHeight'] as num?)?.toInt(),
+      blockTime: (json['blockTime'] as num?)?.toInt(),
       blockhash: json['blockhash'] as String?,
-      parentSlot: json['parentSlot'] as int?,
+      parentSlot: (json['parentSlot'] as num?)?.toInt(),
       previousBlockhash: json['previousBlockhash'] as String?,
       rewards: (json['rewards'] as List<dynamic>?)
           ?.map((e) => RewadsEntity.fromJson(e as Map<String, dynamic>?))

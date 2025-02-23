@@ -16,11 +16,11 @@ TransactionEntity _$TransactionEntityFromJson(Map<String, dynamic> json) =>
       toAddr: json['toAddr'] as String,
       timeStamp: json['timeStamp'] as String,
       value: json['value'] as String,
-      code: json['code'] as int,
+      code: (json['code'] as num).toInt(),
       memo: json['memo'] as String,
-      sequence: json['sequence'] as int,
-      source: json['source'] as int,
-      blockHeight: json['blockHeight'] as int,
+      sequence: (json['sequence'] as num).toInt(),
+      source: (json['source'] as num).toInt(),
+      blockHeight: (json['blockHeight'] as num).toInt(),
     );
 
 Map<String, dynamic> _$TransactionEntityToJson(TransactionEntity instance) =>

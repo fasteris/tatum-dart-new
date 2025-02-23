@@ -12,7 +12,7 @@ GetEthereumTrByAddressResponse _$GetEthereumTrByAddressResponseFromJson(
       tx: (json['tx'] as List<dynamic>)
           .map((e) => TransactionEntity.fromJson(e as Map<String, dynamic>?))
           .toList(),
-      total: json['total'] as int?,
+      total: (json['total'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$GetEthereumTrByAddressResponseToJson(

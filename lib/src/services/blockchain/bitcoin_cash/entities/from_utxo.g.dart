@@ -8,7 +8,7 @@ part of 'from_utxo.dart';
 
 FromUTXO _$FromUTXOFromJson(Map<String, dynamic> json) => FromUTXO(
       txHash: json['txHash'] as String,
-      index: json['index'] as int,
+      index: (json['index'] as num).toInt(),
       privateKey: json['privateKey'] as String,
     );
 

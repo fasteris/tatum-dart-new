@@ -11,7 +11,7 @@ FlowBlockByHashResponse _$FlowBlockByHashResponseFromJson(
     FlowBlockByHashResponse(
       id: json['id'] as String?,
       blockSeals: json['blockSeals'] as List<dynamic>?,
-      height: json['height'] as int?,
+      height: (json['height'] as num?)?.toInt(),
       parentId: json['parentId'] as String?,
       signatures: (json['signatures'] as List<dynamic>?)
           ?.map((e) => e as String)

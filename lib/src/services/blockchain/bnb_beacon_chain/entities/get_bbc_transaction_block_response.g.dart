@@ -9,8 +9,8 @@ part of 'get_bbc_transaction_block_response.dart';
 GetBinanceTxInBlockResponse _$GetBinanceTxInBlockResponseFromJson(
         Map<String, dynamic> json) =>
     GetBinanceTxInBlockResponse(
-      timeStamp: json['timestamp'] as int,
-      blockHeight: json['blockHeight'] as int,
+      timeStamp: (json['timestamp'] as num).toInt(),
+      blockHeight: (json['blockHeight'] as num).toInt(),
       tx: (json['tx'] as List<dynamic>)
           .map((e) => TransactionEntity.fromJson(e as Map<String, dynamic>?))
           .toList(),

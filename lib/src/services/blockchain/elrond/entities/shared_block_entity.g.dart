@@ -9,8 +9,8 @@ part of 'shared_block_entity.dart';
 SharedBlockEntity _$SharedBlockEntityFromJson(Map<String, dynamic> json) =>
     SharedBlockEntity(
       hash: json['hash'] as String,
-      nonce: json['nonce'] as int,
-      shard: json['shard'] as int,
+      nonce: (json['nonce'] as num).toInt(),
+      shard: (json['shard'] as num).toInt(),
     );
 
 Map<String, dynamic> _$SharedBlockEntityToJson(SharedBlockEntity instance) =>

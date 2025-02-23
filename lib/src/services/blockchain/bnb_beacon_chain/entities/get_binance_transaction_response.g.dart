@@ -9,7 +9,7 @@ part of 'get_binance_transaction_response.dart';
 GetBinanceTransactionResponse _$GetBinanceTransactionResponseFromJson(
         Map<String, dynamic> json) =>
     GetBinanceTransactionResponse(
-      code: json['code'] as int,
+      code: (json['code'] as num).toInt(),
       hash: json['hash'] as String,
       height: json['height'] as String,
       log: json['log'] as String,

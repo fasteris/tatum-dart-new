@@ -10,10 +10,10 @@ GetBitcoinBCInfoResponse _$GetBitcoinBCInfoResponseFromJson(
         Map<String, dynamic> json) =>
     GetBitcoinBCInfoResponse(
       chain: json['chain'] as String,
-      blocks: json['blocks'] as int,
-      headers: json['headers'] as int,
+      blocks: (json['blocks'] as num).toInt(),
+      headers: (json['headers'] as num).toInt(),
       bestBlockHash: json['bestblockhash'] as String,
-      difficulty: json['difficulty'] as int,
+      difficulty: (json['difficulty'] as num).toInt(),
     );
 
 Map<String, dynamic> _$GetBitcoinBCInfoResponseToJson(

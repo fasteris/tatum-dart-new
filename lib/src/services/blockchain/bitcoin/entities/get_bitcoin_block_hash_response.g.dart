@@ -10,17 +10,17 @@ GetBitcoinBlockByHashResponse _$GetBitcoinBlockByHashResponseFromJson(
         Map<String, dynamic> json) =>
     GetBitcoinBlockByHashResponse(
       hash: json['hash'] as String,
-      bits: json['bits'] as int,
-      depth: json['depth'] as int,
-      height: json['height'] as int,
+      bits: (json['bits'] as num).toInt(),
+      depth: (json['depth'] as num).toInt(),
+      height: (json['height'] as num).toInt(),
       merkleRoot: json['merkleRoot'] as String,
-      nonce: json['nonce'] as int,
+      nonce: (json['nonce'] as num).toInt(),
       prevBlock: json['prevBlock'] as String,
-      time: json['time'] as int,
+      time: (json['time'] as num).toInt(),
       txs: (json['txs'] as List<dynamic>)
           .map((e) => TXSEntity.fromJson(e as Map<String, dynamic>?))
           .toList(),
-      version: json['version'] as int,
+      version: (json['version'] as num).toInt(),
     );
 
 Map<String, dynamic> _$GetBitcoinBlockByHashResponseToJson(

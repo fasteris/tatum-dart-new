@@ -9,22 +9,22 @@ part of 'transaction_entity.dart';
 TransactionEntity _$TransactionEntityFromJson(Map<String, dynamic> json) =>
     TransactionEntity(
       blockHash: json['blockHash'] as String,
-      blockNumber: json['blockNumber'] as int,
+      blockNumber: (json['blockNumber'] as num).toInt(),
       contractAddress: json['contractAddress'] as String,
-      cumulativeGasUsed: json['cumulativeGasUsed'] as int,
+      cumulativeGasUsed: (json['cumulativeGasUsed'] as num).toInt(),
       from: json['from'] as String,
-      gas: json['gas'] as int,
+      gas: (json['gas'] as num).toInt(),
       gasPrice: json['gasPrice'] as String,
-      gasUsed: json['gasUsed'] as int,
+      gasUsed: (json['gasUsed'] as num).toInt(),
       input: json['input'] as String,
       logs: (json['logs'] as List<dynamic>)
           .map((e) => LogsEntity.fromJson(e as Map<String, dynamic>?))
           .toList(),
-      nonce: json['nonce'] as int,
+      nonce: (json['nonce'] as num).toInt(),
       status: json['status'] as bool,
       to: json['to'] as String,
       transactionHash: json['transactionHash'] as String,
-      trasactionIndex: json['trasactionIndex'] as int,
+      trasactionIndex: (json['trasactionIndex'] as num).toInt(),
       value: json['value'] as String,
     );
 
