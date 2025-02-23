@@ -2,12 +2,12 @@ import 'package:equatable/equatable.dart';
 
 class GeneratePrivateKeyModel extends Equatable {
   final int index;
-  final String mnemonics;
+  final String mnemonic;
 
-  const GeneratePrivateKeyModel({required this.index, required this.mnemonics});
+  const GeneratePrivateKeyModel({required this.index, required this.mnemonic});
 
-  Map<String, dynamic> toJson() => {'index': index, 'mnemonics': mnemonics};
+  Map<String, dynamic> toJson() => {'index': index, 'mnemonic': mnemonic};
 
   @override
-  List<Object?> get props => [index, mnemonics];
+  List<Object?> get props => [index, mnemonic];
 }
