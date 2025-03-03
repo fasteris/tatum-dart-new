@@ -26,7 +26,7 @@ abstract class BitcoinAPI implements BitcoinService {
 
   @override
   @GET('bitcoin/wallet')
-  Future<GenerateBitcoinWalletResponse> generateWallet();
+  Future<GenerateBitcoinWalletResponse> generateWallet({@Query('mnemonic') String? mnemonic});
 
   @override
   @GET('bitcoin/address/{xpub}/{index}')

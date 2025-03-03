@@ -18,9 +18,12 @@ class _BitcoinAPI implements BitcoinAPI {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<GenerateBitcoinWalletResponse> generateWallet() async {
+  Future<GenerateBitcoinWalletResponse> generateWallet({
+    String? mnemonic,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'mnemonic': mnemonic};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<GenerateBitcoinWalletResponse>(

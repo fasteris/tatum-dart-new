@@ -114,7 +114,7 @@ abstract class TronAPI implements TronService {
 
   @override
   @GET('tron/wallet')
-  Future<GenerateTronWallet> generateWallet();
+  Future<GenerateTronWallet> generateWallet({String? mnemonic});
 
   @override
   @GET('tron/address/{xpub}/{index}')
